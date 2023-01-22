@@ -5,8 +5,8 @@ const doc = {
     title: 'Library API',
     description: 'A William Shakespeare Collection',
   },
-  host: 'localhost:3000',
-  schemes: ['http'],
+  host: 'antonio-david-tejada-villalon-l05.onrender.com',
+  schemes: ['https'],
 };
 
 const outputFile = './swagger.json';
