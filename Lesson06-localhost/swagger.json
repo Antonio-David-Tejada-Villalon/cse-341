@@ -5,10 +5,10 @@
     "description": "A William Shakespeare Collection",
     "version": "1.0.0"
   },
-  "host": "antonio-david-tejada-villalon-l05.onrender.com",
+  "host": "localhost:3000",
   "basePath": "/",
   "schemes": [
-    "https"
+    "http"
   ],
   "paths": {
     "/books/": {
