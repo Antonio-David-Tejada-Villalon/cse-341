@@ -40,4 +40,58 @@ const createABook = async (req, res) => {
     }
 };
 
-module.exports = { allBooks,  oneBook, createABook };
+const updateBook = async (req, res) => {
+    try {
+      if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Invalid book id.');
+      }
+      const bookId = new ObjectId(req.params.id);
+      // be aware of updateOne if you only want to update specific fields
+      const book = {
+        title: req.body.title,
+        author: req.body.author,
+        edition: req.body.edition,
+        year: req.body.year,
+        country: req.body.country,
+        price: req.body.price
+      };
+      const response = await mongodb
+        .getDb()
+        .db('library')
+        .collection('books')
+        .replaceOne({ _id: bookId }, book);
+      console.log(response);
+      if (response.modifiedCount > 0) {
+        res.status(204).send();
+      } else {
+        res.status(500).json(response.error || 'Some error occurred while updating the book.');
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  };
+
+  const deleteBook = async (req, res) => {
+    try {
+      if (!ObjectId.isValid(req.params.id)) {
+        res.status(400).json('Invalid book id.');
+      }
+      const bookId = new ObjectId(req.params.id);
+      const response = await mongodb.getDb().db('library').collection('books').remove({ _id: bookId }, true);
+      console.log(response);
+      if (response.deletedCount > 0) {
+        res.status(204).send();
+      } else {
+        res.status(500).json(response.error || 'Some error occurred while deleting the book.');
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  };
+
+module.exports = { 
+    allBooks,  
+    oneBook, 
+    createABook, 
+    updateBook, 
+    deleteBook };
