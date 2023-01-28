@@ -25,13 +25,13 @@ Content-Type: application/json
   "title": "Othelo",
   "author": "William Shakespeare",
   "edition": "2nd edition",
-  "year": "1605",
+  "year": "2000",
   "country": "United Kingdom",
   "price": "$ 7.50"
 }
 
 ### Delete book
-DELETE http://localhost:3000/books/63ce0db5a33d5613d1706619 HTTP/1.1
+DELETE http://localhost:3000/books/63ce209734bf0ab2e9884136 HTTP/1.1
 
 
 
@@ -69,5 +69,5 @@ Content-Type: application/json
 }
 
 ### Delete book
-DELETE https://antonio-david-tejada-villalon-l05.onrender.com/books/ HTTP/1.1
+DELETE https://antonio-david-tejada-villalon-l05.onrender.com/books/63ce21ece7db94acf698ff10 HTTP/1.1
 
