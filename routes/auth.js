@@ -7,10 +7,10 @@ const { auth, requiresAuth } = require('express-openid-connect');
 const config = {
   authRequired: false,
   auth0Logout: true,
-  secret: 'GM0C-x7V_GVvAZVEZKG8HalKkJwbKS_ojqzOnVGC8ivYMDRDN028MDPoQtNAds4X',
-  baseURL: 'https://antonio-david-tejada-villalon-l05.onrender.com',
-  clientID: '2XjrbwiPEQuVVfzcLD7sXWJ4If0YEC3I',
-  issuerBaseURL: 'https://dev-638e88h17iojguvl.us.auth0.com'
+  secret: process.env.SECRET,
+  baseURL: process.env.BASE_URL,
+  clientID: process.env.CLIENT_ID,
+  issuerBaseURL: process.env.ISSUER_BASE_URL
 };
 
 // auth router attaches /login, /logout, and /callback routes to the baseURL
